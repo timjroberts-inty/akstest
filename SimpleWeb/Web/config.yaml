@@ -1,0 +1,13 @@
+# The number of instances of the service that we want to run
+replicaCount: 1
+# For services that need to be exposed to the public, we need to create an 'ingress'
+# section that defines the ingressed ports and the target ports on the deployed 
+# containers
+ingress:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    #targetPort: 80
+    #host: blah.com
+    #path: /

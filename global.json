@@ -1,0 +1,8 @@
+{
+    "sdk": {
+        "version": "2.1.300"
+    },
+    "msbuild-sdks": {
+        "HelmDeploy.Sdk": "1.0.0-alpha1"
+    }
+}
