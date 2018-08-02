@@ -1,13 +1,21 @@
 # The number of instances of the service that we want to run
 replicaCount: 1
-# For services that need to be exposed to the public, we need to create an 'ingress'
-# section that defines the ingressed ports and the target ports on the deployed 
-# containers
-ingress:
+
+# The port(s) that need to be exposed from the associated container
+ports:
+- name: http
+  protocol: TCP
+  port: 80
+
+# If this is a service for other services to consume, then you'll also
+# need to define the port mapping between the service and the container.
+# If the service is callable from the public internet, then you can
+# define ingress mappings on the port configuration in order to create
+# the ingress rules to support this
+service:
   ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    #targetPort: 80
-    #host: blah.com
-    #path: /
+  - port: 80
+    targetPort: http
+    ingress:
+      #host: blah.com
+      path: /
